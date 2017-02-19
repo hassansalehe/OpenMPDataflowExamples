@@ -1,0 +1,17 @@
+cmake_minimum_required (VERSION 2.6)
+set(CMAKE_VERBOSE_MAKEFILE on)
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp -g")
+SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fopenmp -g")
+SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -fopenmp -g")
+
+#SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
+#SET(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -fopenmp")
+#SET(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -fopenmp")
+#set(CMAKE_CXX_DEFINES "${CMAKE_CXX_DEFINES} -fopenmp")
+#set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -fopenmp" )
+
+project (OpenMPDataflowExamples)
+add_definitions(-fopenmp)
+set(CMAKE_CXX_COMPILER "clang-archer++")
+add_executable(banking_task_racy   src/banking_task_racy.cpp)
+add_executable(banking_task_serial src/banking_task_serial.cpp)
