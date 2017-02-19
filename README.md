@@ -7,7 +7,9 @@ A repository containing small OpenMP dataflow test examples. Some of these examp
 To detect data races on these examples, you need ``Archer`` installed on your system.
 More information on how to install Archer: https://github.com/PRUNERS/archer
 
-## How to builds
-s
+## How to build
+There is make file in the root directory which builds all the examples. Use this command to build: ``>$ make`` 
 
-ddddd
+## How to run 
+Executables are generated in bin directory
+``./bin<example name>`` e.g. ``./bin/bank_example_racy``
