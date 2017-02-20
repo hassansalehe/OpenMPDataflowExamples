@@ -10,9 +10,9 @@
 //
 //   *  The expected execution order of these tasks is
 //      INITIALIZER -> COMMISSIONER -> DEPOSITOR -> WITHDRAWER.
-//      This execution order is ensured by the data flow dependency 
+//      This execution order is ensured by the data flow dependency
 //      specified using the depend clause of OpenMP task pragma.
-//  
+//
 //   *  Unfortunately, Archer reports races on this setting.
 //
 //////////////////////////////////////////////////////////////////////
@@ -21,7 +21,7 @@
 
 #include <omp.h>
 
-using namespace std;
+// using namespace std;
 
 // balance
 float balance;
@@ -38,7 +38,7 @@ int main() {
   {
     #pragma omp single
     {
-      cout << "There are " << omp_get_num_threads() << " threads"<< endl;
+      //std::cout << "There are " << omp_get_num_threads() << " threads"<< std::endl;
 
       // INITIALISER task
       #pragma omp task depend(out:token1)
@@ -46,8 +46,8 @@ int main() {
         balance  = 1000; // set balance
         token1 = 1; // trigger next task
       }
-      
-  
+
+
       // COMMISSIONER task
       #pragma omp task depend(in:token1) depend(out:token2)
       {
@@ -55,7 +55,7 @@ int main() {
         balance += (balance * rate); // add commission
         token2 = 1; // trigger next task
       }
-        
+
       // DEPOSITOR task
       #pragma omp task depend(in:token2) depend(out:token3)
       {
@@ -63,18 +63,19 @@ int main() {
         balance += amount;
         token3 = 1; // trigger next task
       }
-        
+
       // WITHDRAWER task
       #pragma omp task depend(in:token3)
       {
         int amount = 500; // amount to withdraw
         balance -= amount; // deduce amount withdrawn
       }
-        
+
       // wait all tasks to complete
       #pragma omp taskwait
-      cout << "balance: " << balance << endl;
+      //std::cout << "balance: " << balance << std::endl;
+      std::cout << balance << std::endl;
     }
   }
-  return 0;
+  return (int)balance;
 }
