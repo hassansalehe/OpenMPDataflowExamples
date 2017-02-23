@@ -14,7 +14,12 @@ set(USE_INTERMEDIATE_OBJECTS_TARGET off)
 project (OpenMPDataflowExamples)
 add_definitions(-fopenmp)
 set(CMAKE_CXX_COMPILER "clang-archer++")
-add_executable(banking_task_racy   src/banking_task_racy.cpp)
-add_executable(banking_task_serial src/banking_task_serial.cpp)
-add_executable(counters src/counters.cpp)
-add_executable(CheckOutput src/CheckOutput.cpp)
+
+# examples
+add_executable(BankingTaskRacy   src/BankingTaskRacy.cpp)
+add_executable(BankingTaskSerial src/BankingTaskSerial.cpp)
+add_executable(Counters          src/Counters.cpp)
+add_executable(MapReduce         src/MapReduce.cpp)
+
+# progam output checker
+add_executable(CheckOutput       src/CheckOutput.cpp)
