@@ -1,3 +1,23 @@
+///////////////////////////////////////////////////////////////////////
+//
+//                  (c) 2017 - Hassan Salehe Matar
+//
+//  Description:
+//
+//   * This program constructs frequency histogram from an input file
+//
+//   *  This program creates 3 tasks namely Map, Reduce,
+//      and Printer.
+//
+//   *  The expected execution order of these tasks is
+//      Map -> Reduce -> Printer.
+//      This execution order is ensured by the data flow dependency
+//      specified using the depend clause of OpenMP task pragma.
+//
+//   *  Archer does not report any race on this setting.
+//
+//////////////////////////////////////////////////////////////////////
+
 #include <iostream>
 #include <omp.h>
 #include <vector>

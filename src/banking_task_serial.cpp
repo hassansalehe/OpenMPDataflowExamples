@@ -2,7 +2,6 @@
 //
 //                  (c) 2017 - Hassan Salehe Matar
 //
-//
 //  Description:
 //
 //   *  This program creates 4 tasks namely INITIALIZER, COMMISSIONER,
