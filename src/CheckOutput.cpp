@@ -18,7 +18,7 @@ int main(int argc, char * argv[]) {
 
   if(argc < 4){
     std::cerr << "Number of arguments less than expected" << std::endl;
-    std::cerr << "Format: ./Checkoutput <your_program_name> <number_of_runs> <expected_output>"
+    std::cerr << "Format: ./Checkoutput <your_program_name> <number_of_runs> <expected_output>" << std::endl;
     exit(1);
   }
 
