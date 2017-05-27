@@ -1,5 +1,5 @@
 # OpenMPDataflowExamples
-A repository containing small OpenMP dataflow test examples. Some of these examples are racy. These examples aims to test the efficiency of Archer, the race detection tool for OpenMP programs.
+A repository containing small OpenMP dataflow test examples. Some of these examples are racy. They aim to test the efficiency of Archer, the race detection tool for OpenMP programs.
 
 # How to build and run
 
