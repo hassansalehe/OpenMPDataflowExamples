@@ -1,9 +1,15 @@
+///////////////////////////////////////////////////////////////////////
+//
+//                  (c) 2017, 2018 - Hassan Salehe Matar
+//
+//  Description:
+//
+//
+//////////////////////////////////////////////////////////////////////
+
 #include <iostream>
 #include <cstring>
-
 #include <omp.h>
-
-using namespace std;
 
 // balance
 float balance;
@@ -49,7 +55,7 @@ int main() {
       // wait all tasks to complete
       #pragma omp taskwait
       //cout << "balance: " << balance << endl;
-      cout<< balance << endl;
+      std::cout<< balance << std::endl;
     }
   }
   return 0;

@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////
 //
-//                  (c) 2017 - Hassan Salehe Matar
+//                  (c) 2017, 2018 - Hassan Salehe Matar
 //
 //  Description:
 //   * This simple code creates two OpenMP dataflow tasks.
@@ -29,13 +29,15 @@ int main() {
       #pragma omp task depend(out: counter) shared(counter)
       {
          counter++;
-         std::cout << "Counter 1 Thread: " << omp_get_thread_num() << std::endl;
+         std::cout << "Counter 1 Thread: "
+                   << omp_get_thread_num() << std::endl;
       }
 
       #pragma omp task depend(in: counter) shared(counter)
       {
          counter++;
-         std::cout << "Counter 2 Thread: " << omp_get_thread_num() << std::endl;
+         std::cout << "Counter 2 Thread: "
+                   << omp_get_thread_num() << std::endl;
       }
 
       #pragma omp taskwait

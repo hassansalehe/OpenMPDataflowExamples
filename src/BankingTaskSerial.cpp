@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////
 //
-//                  (c) 2017 - Hassan Salehe Matar
+//                  (c) 2017, 2018 - Hassan Salehe Matar
 //
 //  Description:
 //
@@ -17,10 +17,7 @@
 //////////////////////////////////////////////////////////////////////
 #include <iostream>
 #include <cstring>
-
 #include <omp.h>
-
-// using namespace std;
 
 // balance
 float balance;

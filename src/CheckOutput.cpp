@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////
 //
-//                  (c) 2017 - Hassan Salehe Matar
+//                  (c) 2017, 2018 - Hassan Salehe Matar
 //
 //  Description:
 //   * Runs your program multiple times and checks the outputs against
@@ -13,46 +13,42 @@
 #include <cstdlib>
 #include <stdio.h>
 
-
 int main(int argc, char * argv[]) {
 
-  if(argc < 4){
+  if (argc < 4) {
     std::cerr << "Number of arguments less than expected" << std::endl;
-    std::cerr << "Format: ./Checkoutput <your_program_name> <number_of_runs> <expected_output>" << std::endl;
+    std::cerr << "Format: ./Checkoutput <your_program_name> "
+              << "<number_of_runs> <expected_output>" << std::endl;
     exit(1);
   }
 
   FILE *  res_fd;
   char holder[20];
   std::string program = "./"; program.append( argv[1] );
+  int numRuns         =  atoi( argv[2] );
+  int expectedResult  =  atoi( argv[3] );
+  int numCorrect      =  0;
 
-  int numRuns = atoi( argv[2] );
-  int expectedResult = atoi( argv[3] );
-
-  int numCorrect = 0;
-
-  for(int i = 0; i < numRuns; i++) {
+  for (int i = 0; i < numRuns; i++) {
     res_fd = popen( program.c_str(), "r" );
 
-    if( !res_fd ) {
-      std::cerr << "Something wrong happened while executing your program" << std::endl;
+    if ( !res_fd ) {
+      std::cerr << "Something wrong happened while executing\n";
       return 1;
-
     }
 
-    int bytes = fread( holder, 1, sizeof( holder ), res_fd );
+    int bytes  = fread( holder, 1, sizeof( holder ), res_fd );
     int result = atoi( holder );
 
-    if( result == expectedResult )
+    if ( result == expectedResult ) {
       numCorrect++;
-     pclose( res_fd );
-
+    }
+    pclose( res_fd );
     std::cout << "run " << i+1 << "/" << numRuns <<  "\r";
-
     //std::cout <<"bytes: " << bytes  << " result "<< result << std::endl;
-  }
-  std::cout << "\r";
+  } // end for
 
+  std::cout << "\r";
   std::cout << "program: "      << program    << std::endl
             << "# of runs: "    << numRuns    << std::endl
             << "correct runs: " << numCorrect << "("
@@ -60,4 +56,3 @@ int main(int argc, char * argv[]) {
 
   return 0;
 }
-
