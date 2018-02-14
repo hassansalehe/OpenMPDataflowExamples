@@ -4,7 +4,7 @@
 //
 //  Description:
 //
-//   * This program constructs frequency histogram from an input file
+//   * This program constructs word frequency histogram from a file
 //
 //   *  This program creates 3 tasks namely Map, Reduce,
 //      and Printer.
@@ -72,7 +72,6 @@ int main(int argc, char* argv[] ) {
         std::cout << "map thread no: "
                   << omp_get_thread_num() << std::endl;
       }
-
 
       #pragma omp task depend(in: sub_hist) depend(out: histogram) shared(sub_hist)
       //shared(histogram)
