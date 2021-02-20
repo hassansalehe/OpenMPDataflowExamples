@@ -45,8 +45,7 @@ int main(int argc, char * argv[]) {
     }
     pclose( res_fd );
     std::cout << "run " << i+1 << "/" << numRuns <<  "\r";
-    //std::cout <<"bytes: " << bytes  << " result "<< result << std::endl;
-  } // end for
+  }
 
   std::cout << "\r";
   std::cout << "program: "      << program    << std::endl
