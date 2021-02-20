@@ -24,7 +24,7 @@ All the produced programs should be in the `build` directory.
 ## How to run
 To run a particular program:
 
-    ./<program_name>           # e.g ./banking_task_serial
+    ./<program_name>    # e.g ./banking_task_serial
 
 
 Run the following command to check how the output of a program changes probably due to data races
