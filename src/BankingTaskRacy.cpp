@@ -2,7 +2,8 @@
 //
 //                  (c) 2017, 2018 - Hassan Salehe Matar
 //
-//  Description:
+//  Description: A simple program with a race condition on variable
+//     "balance" which is accessed by 3 concurrent tasks.
 //
 //
 //////////////////////////////////////////////////////////////////////
